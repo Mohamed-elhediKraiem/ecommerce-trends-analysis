@@ -1,9 +1,11 @@
 import pandas as pd
 import streamlit as st
 import plotly.express as px
+import os
 
 st.title("📈 Évolution des commandes par année")
-df = pd.read_csv('../data/Sample - Superstore.csv', encoding='latin1')
+file_path = os.path.join(os.path.dirname(__file__), '..', 'data', 'Sample - Superstore.csv')
+df = pd.read_csv(file_path, encoding='latin1')
 
 # Filtrage par pays
 pays = st.selectbox("Choisissez un pays", df['Country'].unique())
